@@ -1,0 +1,57 @@
+CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);
+
+INSERT INTO Person (PersonID, LastName, FirstName, Address, City) 
+VALUES (23, 'John', 'jj', 'USA', 'Texas');
+INSERT INTO Person (PersonID, LastName, FirstName, Address, City) 
+VALUES (24, 'John', 'pp', 'USA', 'Texas');
+INSERT INTO Person (PersonID, LastName, FirstName, Address, City) 
+VALUES (25, 'Michel', 'jj', 'USA', 'NewYork');
+INSERT INTO Person (PersonID, LastName, FirstName, Address, City) 
+VALUES (26, 'Krishna', 'k', 'India', 'Andhra');
+INSERT INTO Person (PersonID, LastName, FirstName, Address, City) 
+VALUES (27, 'ramu', 'ch', 'USA', 'Telangana');
+
+select * from Person;
+
+https://docs.oracle.com/cd/E12151_01/doc.150/e12155/oracle_mysql_compared.htm#CHDIIBJH
+
+
+CREATE TABLE Student (
+StudentID int NOT NULL Primary key,
+FullName varchar(222) Not NULL,
+Address varchar(222) Not Null
+);
+
+CREATE TABLE Orders(
+StudentID int NOT NULL Primary key,
+OrderID int Not Null Unique
+);
+
+insert into STudent(StudentID, FullName, Address)
+Values (1211, 'Prakash', 'Guntur');
+insert into STudent(StudentID, FullName, Address)
+Values (1212, 'raftar', 'vadora');
+insert into STudent(StudentID, FullName, Address)
+Values (1213, 'praveen', 'Hyderabad');
+
+Insert into Orders(StudentID, OrderID)
+Values (1211, 12324);
+Insert into Orders(StudentID, OrderID)
+Values (1212, 12333);
+Insert into Orders(StudentID, OrderID)
+Values (1213, 12343);
+
+
+select * from Student;
+select * from Orders;
+
+
+select Student.StudentID, Student.FullName, Student.Address, Orders.OrderID, Orders.StudentID
+From Student
+left Join Orders on Student.StudentID = Orders.StudentID
